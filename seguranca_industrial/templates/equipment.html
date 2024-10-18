@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Inventário de Equipamentos</title>
+</head>
+<body>
+    <h1>Inventário de Equipamentos</h1>
+    <form method="POST" action="/equipment">
+        <input type="text" name="equipment_name" placeholder="Nome do Equipamento" required>
+        <input type="text" name="equipment_info" placeholder="Informação do Equipamento">
+        <button type="submit" name="action" value="add">Adicionar</button>
+        <button type="submit" name="action" value="remove">Remover</button>
+        <button type="submit" name="action" value="update">Atualizar</button>
+    </form>
+    
+    <h2>Equipamentos Atuais</h2>
+    <ul>
+        {% for name, info in equipment.items() %}
+            <li>{{ name }}: {{ info }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
